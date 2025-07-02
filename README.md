@@ -61,4 +61,18 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 
 ## Author
 
-- [minallamohammedsohail](https://github.com/minallamohammedsohail) 
+- [minallamohammedsohail](https://github.com/minallamohammedsohail)
+
+## Screenshots
+
+### Home Page
+![Home Page](screenshots/homepage.png)
+
+### Resume Analysis Results 1
+![Results 1](screenshots/res1.png)
+
+### Resume Analysis Results 2
+![Results 2](screenshots/res2.png)
+
+### Resume Analysis Results 3
+![Results 3](screenshots/res3.png) 
