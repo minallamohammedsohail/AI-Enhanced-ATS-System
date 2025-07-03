@@ -10,7 +10,7 @@ A modern, AI-powered Applicant Tracking System (ATS) that streamlines the recrui
 - **Missing Keywords Detection:** Identify missing skills or keywords in resumes compared to job requirements.
 - **Insights & Suggestions:** Get actionable insights and suggestions to improve both resumes and job descriptions.
 - **Modern Frontend:** Intuitive and responsive React-based frontend for a seamless user experience.
-- **RESTful Backend:** Robust backend (Python/Flask or Node.js) for handling API requests, file uploads, and AI processing.
+- **RESTful Backend:** Robust backend (Python/Flask) for handling API requests, file uploads, and AI processing.
 
 ## Project Structure
 
