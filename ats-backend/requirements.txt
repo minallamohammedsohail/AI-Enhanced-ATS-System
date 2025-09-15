@@ -1,0 +1,9 @@
+flask
+flask-cors
+PyMuPDF
+python-docx
+spacy
+scikit-learn
+textstat
+nltk
+gunicorn
