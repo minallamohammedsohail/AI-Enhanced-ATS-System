@@ -3,6 +3,8 @@ flask-cors
 PyMuPDF
 python-docx
 spacy
+https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.7.1/en_core_web_md-3.7.1-py3-none-any.whl
+
 scikit-learn
 textstat
 nltk
