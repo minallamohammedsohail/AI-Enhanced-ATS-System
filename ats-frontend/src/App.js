@@ -18,7 +18,8 @@ function App() {
       formData.append('resume', resumeFile);
       formData.append('job_description', jobDescription);
       
-      const response = await fetch('http://localhost:5000/analyze', {
+      const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+      const response = await fetch(`${backendUrl}/analyze`, {
         method: 'POST',
         body: formData,
       });

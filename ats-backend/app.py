@@ -23,7 +23,7 @@ nltk.download('averaged_perceptron_tagger')
 nlp = spacy.load("en_core_web_md")
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app, origins=["*"])  # Enable CORS for all origins
 
 def extract_text_from_pdf(pdf_path):
     """Extract text from PDF file."""
@@ -323,6 +323,11 @@ def analyze_achievements(text):
     
     return analysis, achievement_suggestions
 # app.py (continued)
+
+@app.route('/health', methods=['GET'])
+def health_check():
+    """Health check endpoint."""
+    return jsonify({'status': 'healthy', 'message': 'Backend is running'})
 
 @app.route('/analyze', methods=['POST'])
 def analyze_resume():
