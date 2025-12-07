@@ -20,7 +20,11 @@ nltk.download('stopwords')
 nltk.download('averaged_perceptron_tagger')
 
 # Load spaCy model
-nlp = spacy.load("en_core_web_md")
+try:
+    nlp = spacy.load("en_core_web_sm")  # Changed from en_core_web_md
+    print("spaCy model loaded successfully")
+except Exception as e:
+    print(f"Error loading spaCy model: {e}")
 
 app = Flask(__name__)
 CORS(app, origins=["*"])  # Enable CORS for all origins
