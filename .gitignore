@@ -1,43 +1,43 @@
 # Python
-venv/
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# VSCode
-.vscode/
-
-# macOS
-.DS_Store
-
-# Windows
-Thumbs.db
-Desktop.ini
-
-# Node
-node_modules/
-
-# Logs
-*.log
-
-# Environment
-.env
-.env.*
-
-# Others
-*.sqlite3
-*.db
-
-# Ignore frontend build output (if any)
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
 dist/
 build/
 
-# Ignore coverage reports
-htmlcov/
-.coverage
-coverage.xml
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
 
-# Ignore submodule git directories
-.gitmodules
-ats-frontend/.git/ 
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+backend/uploads/
+*.pdf
+*.docx
+*.doc
+frontend/dist/
+frontend/.vite/
+
+# Environment variables
+.env
+.env.local
+

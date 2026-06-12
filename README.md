@@ -1,75 +1,194 @@
-# AI Enhanced ATS System
+# AI-Powered Applicant Tracking System (ATS)
 
-A modern, AI-powered Applicant Tracking System (ATS) that streamlines the recruitment process by leveraging advanced algorithms for resume parsing, job matching, and insightful analytics.
+A full-stack AI-enhanced Applicant Tracking System that enables intelligent resume screening and analysis using Natural Language Processing (NLP) and machine learning techniques.
 
 ## Features
 
-- **Resume Upload & Parsing:** Upload resumes in various formats and extract structured candidate data automatically.
-- **Job Description Analysis:** Input job descriptions and receive keyword extraction, skill matching, and suggestions for improvement.
-- **AI-Powered Scoring:** Automatically score and rank candidates based on job fit using AI models.
-- **Missing Keywords Detection:** Identify missing skills or keywords in resumes compared to job requirements.
-- **Insights & Suggestions:** Get actionable insights and suggestions to improve both resumes and job descriptions.
-- **Modern Frontend:** Intuitive and responsive React-based frontend for a seamless user experience.
-- **RESTful Backend:** Robust backend (Python/Flask) for handling API requests, file uploads, and AI processing.
+- **Intelligent Resume Screening**: Automated analysis of resumes against job descriptions
+- **Document Parsing**: Support for PDF and DOCX file formats using PyMuPDF and python-docx
+- **NLP-Powered Analysis**: 
+  - Skill extraction using spaCy
+  - Semantic similarity using TF-IDF and cosine similarity
+  - Tone analysis for professional writing assessment
+  - Readability scoring using Flesch-Kincaid metrics
+- **ATS Score Computation**: Comprehensive scoring system combining multiple factors
+- **Modern UI**: Built with React.js and shadcn/ui components
+- **Real-time Feedback**: Interactive interface with instant analysis results
+- **Secure Communication**: RESTful API with CORS protection
+
+## Tech Stack
+
+### Backend
+- **Flask**: Python web framework
+- **spaCy**: Natural Language Processing
+- **scikit-learn**: Machine learning (TF-IDF, cosine similarity)
+- **PyMuPDF**: PDF document parsing
+- **python-docx**: DOCX document parsing
+- **textstat**: Readability analysis
+
+### Frontend
+- **React.js**: UI framework
+- **Vite**: Build tool
+- **shadcn/ui**: Modern UI component library
+- **Tailwind CSS**: Styling
+- **Recharts**: Data visualization
+- **Axios**: HTTP client
+
+## Installation
+
+### Prerequisites
+- Python 3.8+ (Python 3.12+ recommended, fully compatible)
+- Node.js 16+
+- npm or yarn
+
+**Note**: For Python 3.12+, the project uses updated dependencies that are compatible with the removal of the deprecated `imp` module. The setup scripts automatically handle this.
+
+### Backend Setup
+
+1. Navigate to the backend directory:
+```bash
+cd backend
+```
+
+2. Create a virtual environment:
+```bash
+python -m venv venv
+```
+
+3. Activate the virtual environment:
+   - On Windows:
+   ```bash
+   venv\Scripts\activate
+   ```
+   - On macOS/Linux:
+   ```bash
+   source venv/bin/activate
+   ```
+
+4. Install Python dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+5. Download spaCy language model:
+```bash
+python -m spacy download en_core_web_sm
+```
+
+6. Run the Flask server:
+```bash
+python app.py
+```
+
+The backend will run on `http://localhost:5000`
+
+### Frontend Setup
+
+1. Navigate to the frontend directory:
+```bash
+cd frontend
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+The frontend will run on `http://localhost:3000`
+
+## Usage
+
+1. Start both the backend and frontend servers
+2. Open your browser and navigate to `http://localhost:3000`
+3. Upload a resume file (PDF or DOCX format)
+4. Paste the job description in the text area
+5. Click "Analyze Resume" to get instant feedback
+
+## ATS Scoring System
+
+The ATS score is computed using a weighted combination of:
+
+- **Similarity Score (40%)**: TF-IDF based cosine similarity between resume and job description
+- **Skills Match (30%)**: Percentage of job-required skills found in the resume
+- **Tone Score (15%)**: Professional, confident, and positive language indicators
+- **Readability Score (15%)**: Flesch Reading Ease and Flesch-Kincaid Grade Level
+
+## API Endpoints
+
+### `GET /api/health`
+Health check endpoint
+
+### `POST /api/analyze`
+Analyze a resume against a job description
+- **Form Data**:
+  - `resume`: File (PDF or DOCX)
+  - `job_description`: String
+
+### `POST /api/extract-skills`
+Extract skills from text
+- **JSON Body**:
+  - `text`: String
 
 ## Project Structure
 
 ```
-ats-backend/      # Backend code (API, AI logic, etc.)
-ats-frontend/     # Frontend React app
+ATS/
+├── backend/
+│   ├── app.py                 # Flask application
+│   ├── ats_analyzer.py        # Core ATS analysis logic
+│   ├── requirements.txt       # Python dependencies
+│   └── uploads/               # Temporary file storage
+├── frontend/
+│   ├── src/
+│   │   ├── components/        # React components
+│   │   │   ├── ui/           # shadcn/ui components
+│   │   │   ├── ScoreChart.jsx
+│   │   │   └── Recommendations.jsx
+│   │   ├── App.jsx           # Main application component
+│   │   ├── main.jsx          # Entry point
+│   │   └── index.css         # Global styles
+│   ├── package.json
+│   └── vite.config.js
+└── README.md
 ```
 
-## Getting Started
+## Features in Detail
 
-### Prerequisites
+### Document Parsing
+- Supports PDF files using PyMuPDF (fitz)
+- Supports DOCX files using python-docx
+- Extracts text content for analysis
 
-- Node.js & npm (for frontend)
-- Python 3.x & pip (for backend)
-- (Optional) Virtual environment for Python
+### Skill Extraction
+- Uses spaCy NLP for named entity recognition
+- Keyword matching against a skills database
+- Identifies technical and soft skills
 
-### Backend Setup
+### Semantic Similarity
+- TF-IDF vectorization of resume and job description
+- Cosine similarity computation
+- Identifies keyword relevance and context
 
-```sh
-cd ats-backend
-python -m venv venv
-venv\Scripts\activate  # On Windows
-pip install -r requirements.txt
-python app.py
-```
+### Tone Analysis
+- Professional language detection
+- Confidence indicators
+- Positive language assessment
 
-### Frontend Setup
-
-```sh
-cd ats-frontend
-npm install
-npm start
-```
-
-### Usage
-
-1. Start the backend server.
-2. Start the frontend React app.
-3. Open your browser and go to `http://localhost:3000`.
+### Readability Scoring
+- Flesch Reading Ease score
+- Flesch-Kincaid Grade Level
+- Normalized scoring for ATS compatibility
 
 ## Contributing
 
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
+## License
 
-## Author
+This project is open source and available under the MIT License.
 
-- [minallamohammedsohail](https://github.com/minallamohammedsohail)
-
-## Screenshots
-
-### Home Page
-![Home Page](screenshots/homepage.png)
-
-### Resume Analysis Results 1
-![Results 1](screenshots/res1.png)
-
-### Resume Analysis Results 2
-![Results 2](screenshots/res2.png)
-
-### Resume Analysis Results 3
-![Results 3](screenshots/res3.png) 

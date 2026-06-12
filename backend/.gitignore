@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+uploads/
+*.pdf
+*.docx
+*.doc
+.DS_Store
+
